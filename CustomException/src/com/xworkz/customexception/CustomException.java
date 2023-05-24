@@ -7,20 +7,22 @@ public class CustomException {
 
 	public static void custom_expn(String name) throws NameIsNullException {
 		if (name != null) {
-			name = null;
+			
 			name.equals(name);
 			System.out.println(name);
+			return;
 		}
 		throw new NameIsNullException("Customised or User Defined Exception");
 	}
 
 	public static void custom_expn1(String name) throws IndexOutOfLimitException {
-		if (name != null) {
+	if (name != null) {
 			String[] files = new String[10];
 			for (int i = 0; i < files.length; i++) {
 				if (files[i] == null) {
 					files[i] = name;
-					System.out.println(files[11]);
+					System.out.println(files[i]);
+					return;
 				}
 
 			}
