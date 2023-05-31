@@ -77,7 +77,13 @@ public class CollectionsRunner {
 		
 		System.out.println(car.toArray());  //Using toArray()
 		
+		System.out.println("-------Using IndexOf---------");
 		
+		System.out.println(car.indexOf("Kia"));
+		System.out.println(car.indexOf("Avenza"));
+		System.out.println(car.indexOf("Ferrari"));
+		System.out.println(car.indexOf("Mustang"));
+		System.out.println(car.indexOf("Lambo"));
 		
 	}
 
