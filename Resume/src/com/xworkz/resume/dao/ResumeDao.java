@@ -148,7 +148,7 @@ public class ResumeDao {
 		if(name!= null) {
 		    	 for(int i=0;i<resume.length;i++) {
 		    		 if(resume[i]!=null) {
-		    			if( resume[i].getName().equalsIgnoreCase(name)) {
+		    			if( resume[i].getName().equals(name)) {
 		    				resume[i].setDateOfbirth(null);
 		    			
 		    			 System.out.println("Name is deleted successfully");
