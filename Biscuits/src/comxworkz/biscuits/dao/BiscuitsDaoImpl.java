@@ -1,20 +1,21 @@
 package comxworkz.biscuits.dao;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import comxworkz.biscuits.dto.BiscuitsDto;
 
-public class BiscuitsDaoImpl implements BiscuitsDao{
-	
+public class BiscuitsDaoImpl implements BiscuitsDao {
+
 	LinkedList<BiscuitsDto> dao = new LinkedList<BiscuitsDto>();
 
 	@Override
 	public boolean save(BiscuitsDto dto) {
-		if(dto!=null) {
+		if (dto != null) {
 			dao.add(dto);
 			System.out.println("Dto saved");
 			return true;
-			}
+		}
 		System.out.println("Dto not saved");
 		return false;
 	}
@@ -25,41 +26,61 @@ public class BiscuitsDaoImpl implements BiscuitsDao{
 	}
 
 	@Override
-	public boolean update(String flavour) {
-		if(flavour!=null) {
-			for(BiscuitsDto str:dao) {
-			dao.set(0, str);
-			System.out.println("Flavour updated");
-			return true;
+	public BiscuitsDto update(String flavour, int price) {
+		if (flavour != null) {
+			for (BiscuitsDto bisc : dao) {
+				if (bisc.getFlavour().equals(flavour)) {
+					bisc.setPrice(price);
+					System.out.println("Price is Updated");
+					return bisc;
+				}
+
 			}
+			System.out.println("Flavour not found");
+			return null;
+
 		}
-		System.out.println("Flavour not updated");
-		return false;
+		System.out.println("Flavour is null");
+		return null;
 	}
 
 	@Override
-	public boolean search(String shape) {
-		if(shape!=null) {
-			for(BiscuitsDto str:dao) {
-			dao.get(2);
-			System.out.println("Dto found");
-			return true;
+	public BiscuitsDto search(String shape) {
+		if (shape != null) {
+			for (BiscuitsDto biscuitsDto : dao) {
+				if (biscuitsDto.getShape().equals(shape)) {
+					System.out.println("found Dto");
+					return biscuitsDto;
+				}
+
 			}
+			System.out.println("Shape not found");
+			return null;
 		}
-		System.out.println("Dto not found");
-		return false;
+		System.out.println("Shape should not be null");
+		return null;
 	}
 
 	@Override
-	public boolean delete(int price) {
-		for(BiscuitsDto str:dao) {
-		dao.set(2, str).setPrice(0);
-		System.out.println("Dto deleted");
-		return true;
+	public BiscuitsDto delete(String name) {
+		Iterator<BiscuitsDto> bisc = dao.iterator();
+		if (name != null) {
+			while (bisc.hasNext()) {
+				BiscuitsDto dto = (BiscuitsDto) bisc.next();
+				if (dto.getName().equals(name)) {
+					bisc.remove();
+					System.out.println("Dto is deleted");
+					return dto;
+				}
+
+			}
+			System.out.println("Name not found");
+			return null;
+
 		}
-		
-		System.out.println("valid price not found");
-		return false;
+		System.out.println("Name is null");
+		return null;
+
 	}
 
 }

@@ -24,14 +24,25 @@ public class BiscuitsRunner {
 			System.out.println(biscts);
 		}
 		
-		boolean ref=dao.update("Milky");
-		System.out.println(ref);
+		System.out.println("-----------------------------------------------");
 		
-		boolean ref1=dao.search("Square");
+		BiscuitsDto ref=dao.update("Pineapple",2);
+		System.out.println(ref);
+
+		
+		System.out.println("-----------------------------------------------");
+		
+		BiscuitsDto ref1=dao.search("Square");
 		System.out.println(ref1);
 		
-		boolean ref2=dao.delete(40);
+		
+		System.out.println("-----------------------------------------------");
+		
+		BiscuitsDto ref2=dao.delete("Barbourn");
 		System.out.println(ref2);
+		
+		
+				
 		
 		
 		

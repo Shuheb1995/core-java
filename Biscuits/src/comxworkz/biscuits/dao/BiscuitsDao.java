@@ -8,8 +8,8 @@ public interface BiscuitsDao {
 	
 	public boolean save(BiscuitsDto dto);
 	public LinkedList<BiscuitsDto> read();
-	public boolean update(String flavour);
-	public boolean search(String flavour);
-	public boolean delete(int price);
+	public BiscuitsDto update(String flavour,int price);
+	public BiscuitsDto search(String flavour);
+	public BiscuitsDto delete(String name);
 
 }
