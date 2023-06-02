@@ -29,28 +29,33 @@ public class BiscuitsDaoImpl implements BiscuitsDao {
 	public BiscuitsDto update(String flavour, int price) {
 		if (flavour != null) {
 			for (BiscuitsDto bisc : dao) {
+				if(bisc !=null && bisc.getFlavour()!=null) {)
 				if (bisc.getFlavour().equals(flavour)) {
 					bisc.setPrice(price);
 					System.out.println("Price is Updated");
 					return bisc;
 				}
-
+				
 			}
-			System.out.println("Flavour not found");
-			return null;
 
 		}
+		System.out.println("Flavour not found");
+		return null;
+
+	}
 		System.out.println("Flavour is null");
 		return null;
-	}
+}
 
 	@Override
 	public BiscuitsDto search(String shape) {
 		if (shape != null) {
 			for (BiscuitsDto biscuitsDto : dao) {
-				if (biscuitsDto.getShape().equals(shape)) {
-					System.out.println("found Dto");
-					return biscuitsDto;
+				if (biscuitsDto != null && biscuitsDto.getShape() != null) {
+					if (biscuitsDto.getShape().equals(shape)) {
+						System.out.println("found Dto");
+						return biscuitsDto;
+					}
 				}
 
 			}
@@ -67,10 +72,12 @@ public class BiscuitsDaoImpl implements BiscuitsDao {
 		if (name != null) {
 			while (bisc.hasNext()) {
 				BiscuitsDto dto = (BiscuitsDto) bisc.next();
-				if (dto.getName().equals(name)) {
-					bisc.remove();
-					System.out.println("Dto is deleted");
-					return dto;
+				if (dto != null && dto.getName() != null) {
+					if (dto.getName().equals(name)) {
+						bisc.remove();
+						System.out.println("Dto is deleted");
+						return dto;
+					}
 				}
 
 			}
