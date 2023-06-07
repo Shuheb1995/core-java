@@ -29,23 +29,24 @@ public class BiscuitsDaoImpl implements BiscuitsDao {
 	public BiscuitsDto update(String flavour, int price) {
 		if (flavour != null) {
 			for (BiscuitsDto bisc : dao) {
-				if(bisc !=null && bisc.getFlavour()!=null) {)
-				if (bisc.getFlavour().equals(flavour)) {
-					bisc.setPrice(price);
-					System.out.println("Price is Updated");
-					return bisc;
+				if (bisc != null && bisc.getFlavour() != null) {
+					if (bisc.getFlavour().equals(flavour)) {
+						bisc.setPrice(price);
+						System.out.println("Price is Updated");
+						return bisc;
+					}
+
 				}
 				
 			}
+			System.out.println("Flavour not found");
+			return null;
 
 		}
-		System.out.println("Flavour not found");
-		return null;
 
-	}
 		System.out.println("Flavour is null");
 		return null;
-}
+	}
 
 	@Override
 	public BiscuitsDto search(String shape) {
