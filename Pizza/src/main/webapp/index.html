@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pizza</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<style>
+.d-flex {
+	text-transform: uppercase;
+	padding-left: 200px;
+	color: white;
+}
+</style>
+
+<script>
+	function register() {
+		console.log("calling register function");
+
+		var regButton = document.getElementById("regButton");
+		regButton.style.backgroundColor = 'red'
+		regButton.style.color = 'white'
+
+		var PizzaName = document.getElementById("PizzaName")
+		console.log(PizzaName.value)
+		var pizzaNameMessage = document.getElementById("pizzaNameMessage")
+		pizzaNameMessage.innerHTML = ''
+		if (pizzaName.value == '') {
+			console.log("Please Enter Pizza Name")
+			pizzaNameMessage, innerHTML = "Please Enter Pizza Name"
+			pizzaNameMessage.style.color = 'red'
+			return false;
+		}
+
+		var typeMessage = document.getElementById("typeMessage")
+		console.log(document.pizzaOrder.type.value)
+		typeMessage.innerHTML = ''
+		if (document.pizzaOrder.type.value == '0') {
+			console.log("please select type")
+			typeMessage.innerHTML = "please select type"
+			typeMessage.style.color = 'red'
+			return false;
+		}
+
+		var pizzaSize = document.getElementById("pizzaSize")
+		console.log(pizzaSize.value)
+		var sizeMessage = document.getElementById("sizeMessage")
+		sizeMessage.innerHTML = ''
+		if (pizzaSize.value == '') {
+			console.log("Please Enter Size")
+			sizeMessage.innerHTML = "Please Enter Size"
+			sizeMessage.style.color = 'red'
+		}
+
+		var location = document.getElementById("location")
+		console.log(location.value)
+		var locationMessage = document.getElementById("locationMessage")
+		locationMessage.innerHTML = ''
+		if (location.value == '') {
+			console.log("Please Enter Location")
+			locationMessage.innerHTML = "Please Enter Location"
+			locationMessage.style.color = 'red'
+		}
+
+		var payModeMessage = document.getElementById("payModeMessage")
+		console.log(payModeMessage.pizzaOrder.paymentMode.value)
+		payModeMessage.innerHTML = ''
+		if (payModeMessage.pizzaOrder.paymentMode.value == '0') {
+			console.log("Please Select Payment Type")
+			payModeMessage.innerHTML = "Please Select Payment Type"
+			payModeMessage.style.color = 'red'
+		}
+		
+		var regButton = document.getElementById("regButton")
+		regButton.style.backgroungColor = 'red'
+			regButton.style.color = 'white'
+
+	}
+</script>
+
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+
+		<div class="container">
+			<a class="navbar-brand" href="#"> <img
+				src="C:\Users\Shuheb\eclipse-workspace\core-java\pizza.jpg"
+				width="500" height="200">
+			</a>
+		</div>
+
+		<div class="container-fluid">
+			<form class="d-flex">
+				<input class="form-control me-2" type="search" placeholder="Search"
+					aria-label="Search">
+				<button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		</div>
+
+	</nav>
+
+	<form action="pizza" name="pizzaOrder" method="post">
+
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Pizza
+				Name</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="Enter Pizza Name"
+				name="pizzaName" id="PizzaName"> <span id=pizzaNameMessage></span>
+		</div>
+
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Pizza
+				Type</label> <select class="form-select" aria-label="Default select example"
+				name="type">
+				<option value=0>--SelectType--</option>
+				<option>Momo Mia Pizza-Veg</option>
+				<option>Schezwan Margherita Pizza</option>
+				<option>Ultimate Tandoori Veggie Pizza</option>
+				<option>Mexican Fiesta Pizza</option>
+				<option>Margherita Pizza</option>
+			</select> <span id="typeMessage"></span>
+		</div>
+
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Pizza
+				Size</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="Enter Pizza Size"
+				id="pizzaSize" name="pizzaSize"> <span id="sizeMessage"></span>
+		</div>
+
+		<div class="mb-3">
+			<label for="exampleFormControlTextarea1" class="form-label">Location</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1"
+				rows="5" id="location" name="location"></textarea>
+			<span id="locationMessage"></span>
+		</div>
+
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Payment
+				Type</label> <select class="form-select" aria-label="Default select example"
+				name="paymentMode">
+				<option value=0>--Select Payment Type--</option>
+				<option>Credit Card</option>
+				<option>Debit Card</option>
+				<option>Wallet</option>
+				<option>Pay On Delivery</option>
+			</select> <span id="payModeMessage"></span>
+		</div>
+
+		<div class="mb-3">
+			<input class="btn btn-primary" type="submit" onclick="register()" id="regButton" value="Submit">
+		</div>
+
+	</form>
+
+</body>
+</html>
